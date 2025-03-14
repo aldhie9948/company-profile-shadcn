@@ -12,7 +12,7 @@
 	];
 </script>
 
-<section id="about-us" class="container h-[93%] space-y-4 py-32">
+<section id="about-us" class="container h-dvh space-y-4 py-32">
 	<h1 class="col-span-2 mb-8 text-center text-4xl font-black">About Us Company</h1>
 	<div class="grid h-full grid-cols-2 space-x-4">
 		<img
@@ -20,7 +20,7 @@
 			alt="two manufacture workers"
 			class="h-full w-full object-cover object-[1%]"
 		/>
-		<div class="description space-y-4 p-5">
+		<div class="description space-y-6 p-5">
 			<h2 class="text-2xl font-black">PT. Nandya Persada Sejahtera</h2>
 			<p class="leading-relaxed">
 				Sejak didirikan pada tahun 2010 oleh <span>Alm. Bapak Hadi Subroto</span>
@@ -37,7 +37,7 @@
 				standar kualitas tinggi yang telah diakui melalui sertifikasi
 				<span>ISO 9001:2015</span>.
 			</p>
-			<Button>
+			<Button href={base.concat("/tentang-kami")}>
 				<span>Baca Selengkapnya</span>
 				<LucideArrowRight />
 			</Button>

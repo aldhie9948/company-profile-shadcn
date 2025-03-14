@@ -6,7 +6,7 @@
 
 	let isScrolled = $state(false);
 
-	const handleScroll = () => (isScrolled = window.scrollY > 100);
+	const handleScroll = () => (isScrolled = window.scrollY > 200);
 
 	onMount(() => {
 		window.addEventListener("scroll", handleScroll);
@@ -55,7 +55,7 @@
 				<span class="font-bold">Nandya Persada Sejahtera</span>
 				<span class="text-sm font-light">Solusi Kabel Tray yang Modern dan Aman</span>
 			</div>
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center space-x-6">
 				{#each data.navItems as item, i (i)}
 					{@const { href, label } = item}
 					{@const isActive = data.pathname === href}
@@ -64,14 +64,14 @@
 			</div>
 		</div>
 	</header>
-	<div class="h-dvh space-y-4 overflow-auto">
+	<div class="space-y-4">
 		{@render children()}
 	</div>
 </main>
 
 <style>
 	.link {
-		@apply text-sm text-muted-foreground;
+		@apply text-sm text-muted-foreground duration-200 hover:text-blue-500;
 	}
 
 	.link-active {
@@ -79,6 +79,6 @@
 	}
 
 	.header-scroll {
-		@apply to-blue-50 shadow-md;
+		@apply from-white to-blue-50 shadow-md;
 	}
 </style>

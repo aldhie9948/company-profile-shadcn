@@ -7,7 +7,7 @@
 	import { LucideArrowRight } from "lucide-svelte";
 
 	const images = _(_.range(1, 5))
-		.map((d) => base.concat("/images/carousel", String(d), ".webp"))
+		.map((d) => base.concat("/images/carousel/", String(d), ".webp"))
 		.value();
 </script>
 
