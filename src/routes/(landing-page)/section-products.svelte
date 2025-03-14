@@ -61,11 +61,11 @@
 		{#each products as product, i (i)}
 			{@const href = product.url.replace("images/products", "produk").replace(".webp", "/")}
 			<div class=" flex h-full flex-col space-y-2">
-				<div class="rounded-lg border bg-white shadow-sm">
+				<div class="overflow-hidden rounded-lg border bg-white shadow">
 					<img
 						src={product.url}
 						alt={product.name}
-						class="mx-auto aspect-square h-full w-8/12 object-contain"
+						class="mx-auto aspect-square h-full w-8/12 object-contain duration-200 hover:scale-125"
 					/>
 				</div>
 				<h1 class="text-lg font-bold">{product.name}</h1>
