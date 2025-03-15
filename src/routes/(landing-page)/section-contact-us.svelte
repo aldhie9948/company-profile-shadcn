@@ -1,14 +1,39 @@
 <script lang="ts">
+	import api from "$lib/api";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import Input from "$lib/components/ui/input/input.svelte";
 	import Label from "$lib/components/ui/label/label.svelte";
 	import Textarea from "$lib/components/ui/textarea/textarea.svelte";
+	import type { ContactForm, ErrorAxios } from "$lib/types";
 	import {
 		LucideMailCheck,
 		LucideMapPinCheckInside,
 		LucidePhoneCall,
 		LucideSend
 	} from "lucide-svelte";
+	import { toast } from "svelte-sonner";
+
+	let contact = $state<ContactForm>({
+		name: "",
+		email: "",
+		msg: ""
+	});
+
+	const resetField = () => (contact = { email: "", msg: "", name: "" });
+
+	const submit = async (e: SubmitEvent & { currentTarget: EventTarget & HTMLFormElement }) => {
+		e.preventDefault();
+		try {
+			const target = e.currentTarget;
+			const formData = new FormData(target);
+			await api.post("/", formData);
+			toast.success("Pesan berhasil dikirim.");
+			resetField();
+		} catch (error) {
+			const { message } = error as ErrorAxios;
+			toast.error(message);
+		}
+	};
 </script>
 
 <section id="contact-us" class="bg-slate-100 py-20">
@@ -55,7 +80,7 @@
 				</div>
 				<div class="space-y-2">
 					<h2 class="mb-4 text-xl font-bold">Formulir Kontak</h2>
-					<form class="flex flex-col space-y-4">
+					<form class="flex flex-col space-y-4" onsubmit={submit}>
 						<Label class="space-y-2">
 							<span>Nama</span>
 							<Input
@@ -64,6 +89,7 @@
 								required
 								autocomplete="off"
 								placeholder="Masukkan nama lengkap Anda"
+								bind:value={contact.name}
 							/>
 						</Label>
 						<Label class="space-y-2">
@@ -74,13 +100,19 @@
 								required
 								autocomplete="off"
 								placeholder="Masukkan alamat email Anda"
+								bind:value={contact.email}
 							/>
 						</Label>
 						<Label class="space-y-2">
 							<span>Pesan</span>
-							<Textarea required name="pesan" placeholder="Tulis pesan Anda di sini..." />
+							<Textarea
+								required
+								name="pesan"
+								placeholder="Tulis pesan Anda di sini..."
+								bind:value={contact.msg}
+							/>
 						</Label>
-						<Button>
+						<Button type="submit">
 							<LucideSend />
 							<span>Kirim Pesan</span>
 						</Button>

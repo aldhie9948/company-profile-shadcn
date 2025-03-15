@@ -4,6 +4,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
 	plugins: [sveltekit()],
 	ssr: {
-		noExternal: ["lucide-svelte", "svelte-motion"]
+		noExternal: ["lucide-svelte", "svelte-sonner"]
 	}
 });

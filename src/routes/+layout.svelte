@@ -1,24 +1,32 @@
 <script lang="ts">
-	import Icon from "@iconify/svelte";
 	import { base } from "$app/paths";
+	import { Toaster } from "$lib/components/ui/sonner";
+	import Icon from "@iconify/svelte";
+	import dayjs from "dayjs";
 	import { onMount } from "svelte";
 	import "../app.css";
+	import Separator from "$lib/components/ui/separator/separator.svelte";
+
+	const currentYear = dayjs().format("YYYY");
+
 	let { children, data } = $props();
 
 	let isScrolled = $state(false);
-
-	const handleScroll = () => (isScrolled = window.scrollY > 200);
-
+	let parentElement = $state<HTMLElement>(null!);
 	const phoneNumber = "6282114821226";
 	const whatsappLink = "https://wa.me/?phone=" + phoneNumber;
 
+	const handleScroll = () => (isScrolled = parentElement?.scrollTop > 200);
+
 	onMount(() => {
-		window.addEventListener("scroll", handleScroll);
+		parentElement?.addEventListener("scroll", handleScroll);
 		return () => {
-			window.removeEventListener("scroll", handleScroll);
+			parentElement?.removeEventListener("scroll", handleScroll);
 		};
 	});
 </script>
+
+<Toaster richColors position="bottom-center" />
 
 <svelte:head>
 	<title>
@@ -48,7 +56,7 @@
 	<meta property="og:image" content="https://www.nandyapersadasejahtera.com/images/logo.png" />
 	<link rel="canonical" href="https://www.nandyapersadasejahtera.com" />
 </svelte:head>
-<main>
+<main class="flex h-dvh flex-col overflow-auto" bind:this={parentElement}>
 	<header
 		class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200"
 		class:header-scroll={isScrolled}
@@ -68,9 +76,80 @@
 			</div>
 		</div>
 	</header>
-	<div class="space-y-4">
+	<div class="grow space-y-4">
 		{@render children()}
 	</div>
+	<footer class="bg-blue-800 py-5 text-white">
+		<div class="container space-y-4">
+			<div class="grid grid-cols-12 gap-4 py-5">
+				<div class="col-span-5 space-y-2">
+					<h2 class="text-lg font-bold">About Company</h2>
+					<img
+						src={base.concat("/images/logo.png")}
+						alt="logo nandya persada sejahtera"
+						width="48px"
+					/>
+					<h3 class="text-xl font-bold">PT. Nandya Persada Sejahtera</h3>
+					<p class="text-slate-300">
+						Solusi modern dan aman untuk kebutuhan kabel tray di Bogor dan Bekasi. Mengutamakan
+						kualitas dan inovasi dalam industri manufaktur.
+					</p>
+				</div>
+
+				<div class="col-span-3 space-y-2">
+					<h2 class="text-lg font-bold">Contact Us</h2>
+					<ul>
+						<li>
+							Jl. Pancasila IV, RT02 RW13, Cicadas, Gunung Putri Kecamatan Gunung Putri, Kabupaten
+							Bogor Jawa Barat 16964 - Indonesia
+						</li>
+						<li>Telepon: (021) 8674344</li>
+						<li>
+							Email: <a
+								href="mailto:info@nandyapersadasejahtera.com"
+								class="underline underline-offset-4">info@nandyapersadasejahtera.com</a
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="col-span-2 space-y-2">
+					<h2 class="text-lg font-bold">Quick Links</h2>
+					<ul>
+						{#each data.navItems as item, i (i)}
+							<li>
+								<a href={item.href} class="text-sm text-slate-300">{item.label}</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<div class="col-span-2 space-y-2">
+					<h2 class="text-lg font-bold">Follow Us</h2>
+					<ul>
+						<li>
+							<Icon icon="mdi:linkedin" width="1.2rem" />
+							<a href="https://www.linkedin.com/company/pt-nandya-persada-sejahtera">LinkedIn</a>
+						</li>
+						<li>
+							<Icon icon="ic:baseline-whatsapp" width="1.2rem" />
+							<a href={whatsappLink}>Whatsapp</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="flex items-center gap-2">
+				<small class="grow text-slate-300">
+					Copyright © {currentYear} PT. Nandya Persada Sejahtera
+				</small>
+				<small>
+					<a href={base.concat("/blog/terms-of-service")}>Terms of Service</a>
+				</small>
+				<Separator orientation="vertical" class="h-2" />
+				<small>
+					<a href={base.concat("/blog/privacy-policy")}>Privacy Policy</a>
+				</small>
+			</div>
+		</div>
+	</footer>
 </main>
 
 <a
@@ -93,5 +172,12 @@
 
 	.header-scroll {
 		@apply from-white to-blue-50 shadow-md;
+	}
+
+	footer ul {
+		@apply list-inside space-y-2;
+		li {
+			@apply flex items-center gap-x-2 text-sm text-slate-300;
+		}
 	}
 </style>
