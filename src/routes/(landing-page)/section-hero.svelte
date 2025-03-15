@@ -5,30 +5,43 @@
 	import Autoplay from "embla-carousel-autoplay";
 	import _ from "lodash";
 	import { LucideArrowRight } from "lucide-svelte";
+	import { onMount } from "svelte";
 
-	const images = _(_.range(1, 5))
-		.map((d) => base.concat("/images/carousel/", String(d), ".webp"))
-		.value();
+	let autoplayEnabled = $state(false);
+
+	const images = $derived(
+		_(_.range(1, autoplayEnabled ? 5 : 2))
+			.map((d) => base.concat("/images/carousel/", String(d), ".webp"))
+			.value()
+	);
+
+	const plugins = $derived(autoplayEnabled ? [Autoplay({ delay: 5000 })] : []);
+
+	onMount(() => {
+		autoplayEnabled = window.innerWidth >= 640;
+	});
 </script>
 
 <section id="hero" class="relative w-full overflow-hidden lg:h-dvh">
-	<Carousel.Root opts={{ loop: true }} plugins={[Autoplay({ delay: 5000 })]} class="">
-		<Carousel.Content>
-			{#each images as img, i (i)}
-				<Carousel.Item>
-					<div class="relative">
-						<!-- layer -->
-						<div class="absolute inset-0 bg-slate-100/50"></div>
-						<img
-							src={img}
-							alt={"carousel".concat(String(i))}
-							class="h-dvh w-full object-cover object-center lg:h-full"
-						/>
-					</div>
-				</Carousel.Item>
-			{/each}
-		</Carousel.Content>
-	</Carousel.Root>
+	{#key plugins}
+		<Carousel.Root opts={{ loop: true }} {plugins}>
+			<Carousel.Content>
+				{#each images as img, i (i)}
+					<Carousel.Item>
+						<div class="relative">
+							<!-- layer -->
+							<div class="absolute inset-0 bg-slate-100/50"></div>
+							<img
+								src={img}
+								alt={"carousel".concat(String(i))}
+								class="h-dvh w-full object-cover object-center lg:h-full"
+							/>
+						</div>
+					</Carousel.Item>
+				{/each}
+			</Carousel.Content>
+		</Carousel.Root>
+	{/key}
 
 	<div class="absolute inset-0 flex h-full flex-col sm:container sm:justify-center">
 		<div class="h-full w-full space-y-4 bg-white/80 p-8 sm:p-10 md:h-fit md:w-10/12 lg:w-8/12">

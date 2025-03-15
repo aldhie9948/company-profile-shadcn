@@ -61,14 +61,14 @@
 						class="flex items-center gap-2 space-y-2"
 						title="Nomor Kontak PT Nandya Persada Sejahtera"
 					>
-						<LucidePhoneCall />
+						<LucidePhoneCall class="shrink-0" />
 						<div class="flex flex-col">
 							<span>(021) 8674344</span>
 							<span>+62 821-1482-1226</span>
 						</div>
 					</div>
 					<div class="flex items-center gap-2 space-y-2" title="Email PT Nandya Persada Sejahtera">
-						<LucideMailCheck />
+						<LucideMailCheck class="shrink-0" />
 						<div class="flex flex-col">
 							<a href="mailto:marketing@nandyapersadasejahtera.com">
 								marketing@nandyapersadasejahtera.com

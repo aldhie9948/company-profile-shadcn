@@ -15,7 +15,7 @@
 
 	let isScrolled = $state(false);
 	const phoneNumber = "6282114821226";
-	const whatsappLink = "https://wa.me/?phone=" + phoneNumber;
+	const whatsappLink = "https://api.whatsapp.com/send/?phone=" + phoneNumber;
 
 	const handleScroll = () => (isScrolled = window.scrollY > 200);
 

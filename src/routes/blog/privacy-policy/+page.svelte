@@ -7,7 +7,7 @@
 	const lastUpdated = dayjs("2025-03-15 15:00", "YYYY-MM-DD HH:mm");
 </script>
 
-<section id="terms-of-service" class="container space-y-4 py-24">
+<section id="terms-of-service" class="container space-y-4 sm:py-24">
 	<h1 class="text-2xl font-black">Privacy Policy</h1>
 	<small class="text-muted-foreground"
 		>Last Updated: {lastUpdated.format("dddd, DD MMMM YYYY HH:mm")}</small
