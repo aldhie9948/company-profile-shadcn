@@ -41,14 +41,13 @@
 				<span>Baca Selengkapnya</span>
 				<LucideArrowRight />
 			</Button>
-			<div class="py-4">
-				<Separator />
-			</div>
-			<div class="grid grid-cols-4">
+			<div class="py-4"></div>
+			<div class="grid grid-cols-4 gap-4">
 				{#each timelines as item, i (i)}
-					<div class="flex flex-col">
+					<div class="flex flex-col space-y-2">
 						<span class="text-4xl">{item.value}</span>
-						<span class="!font-normal">{item.label}</span>
+						<Separator />
+						<span class="!font-semibold">{item.label}</span>
 					</div>
 				{/each}
 			</div>

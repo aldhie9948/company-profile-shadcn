@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from "@iconify/svelte";
 	import { base } from "$app/paths";
 	import { onMount } from "svelte";
 	import "../app.css";
@@ -7,6 +8,9 @@
 	let isScrolled = $state(false);
 
 	const handleScroll = () => (isScrolled = window.scrollY > 200);
+
+	const phoneNumber = "6282114821226";
+	const whatsappLink = "https://wa.me/?phone=" + phoneNumber;
 
 	onMount(() => {
 		window.addEventListener("scroll", handleScroll);
@@ -68,6 +72,15 @@
 		{@render children()}
 	</div>
 </main>
+
+<a
+	href={whatsappLink}
+	aria-label="contact nandya persada sejahtera via whatsapp"
+	class="fixed bottom-5 right-5 rounded-full bg-gradient-to-b from-green-500 to-green-600 shadow-md"
+	target="_blank"
+>
+	<Icon icon="ic:baseline-whatsapp" class="m-3 text-white" width="3rem" />
+</a>
 
 <style>
 	.link {
