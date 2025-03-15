@@ -12,7 +12,7 @@
 	];
 </script>
 
-<section id="about-us" class="container h-fit space-y-4 py-32">
+<section id="about-us" class="container h-fit space-y-4 py-10 sm:py-32">
 	<h1 class="mb-8 text-center text-4xl font-black">About Us Company</h1>
 	<div class="grid h-full grid-cols-1 gap-4 lg:grid-cols-2">
 		<img

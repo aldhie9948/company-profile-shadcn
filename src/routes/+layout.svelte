@@ -60,7 +60,7 @@
 
 <main class="flex min-h-dvh flex-col">
 	<header
-		class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200"
+		class="sticky inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200 sm:fixed"
 		class:header-scroll={isScrolled}
 	>
 		<div class="container flex items-center space-x-2">

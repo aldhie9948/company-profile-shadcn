@@ -17,7 +17,7 @@
 
 <Sheet.Root bind:open>
 	<Sheet.Trigger
-		class={cn(buttonVariants({ variant: "ghost", size: "icon", class: "flex lg:hidden" }))}
+		class={cn(buttonVariants({ variant: "ghost", size: "icon", class: "flex shrink-0 lg:hidden" }))}
 	>
 		<LucideMenu />
 	</Sheet.Trigger>
