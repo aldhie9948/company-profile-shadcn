@@ -14,16 +14,15 @@
 	let { children, data } = $props();
 
 	let isScrolled = $state(false);
-	let parentElement = $state<HTMLElement>(null!);
 	const phoneNumber = "6282114821226";
 	const whatsappLink = "https://wa.me/?phone=" + phoneNumber;
 
-	const handleScroll = () => (isScrolled = parentElement?.scrollTop > 200);
+	const handleScroll = () => (isScrolled = window.scrollY > 200);
 
 	onMount(() => {
-		parentElement?.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll);
 		return () => {
-			parentElement?.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	});
 </script>
@@ -59,17 +58,21 @@
 	<link rel="canonical" href="https://www.nandyapersadasejahtera.com" />
 </svelte:head>
 
-<main class="flex h-dvh flex-col overflow-auto" bind:this={parentElement}>
+<main class="flex min-h-dvh flex-col">
 	<header
 		class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200"
 		class:header-scroll={isScrolled}
 	>
 		<div class="container flex items-center space-x-2">
-			<img src={base.concat("/images/logo.png")} alt="nandya persada sejahtera logo" width="48px" />
-			<div class="flex grow flex-col leading-tight">
-				<span class="font-bold">Nandya Persada Sejahtera</span>
-				<span class="text-sm font-light">Solusi Kabel Tray yang Modern dan Aman</span>
-			</div>
+			<img
+				src={base.concat("/images/logo.png")}
+				alt="nandya persada sejahtera logo"
+				class="w-10 sm:w-12"
+			/>
+			<a href={base.concat("/")} class="flex grow flex-col leading-tight">
+				<span class="text-sm font-bold sm:text-base">Nandya Persada Sejahtera</span>
+				<span class="text-xs font-light sm:text-sm">Solusi Kabel Tray yang Modern dan Aman</span>
+			</a>
 			<div class="flex items-center space-x-6">
 				{#each data.navItems as item, i (i)}
 					{@const { href, label } = item}
@@ -140,7 +143,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="flex items-center gap-2">
+			<div class="flex flex-wrap items-center gap-2 sm:flex-nowrap">
 				<small class="grow text-slate-300">
 					Copyright © {currentYear} PT. Nandya Persada Sejahtera
 				</small>

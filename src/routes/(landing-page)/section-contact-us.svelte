@@ -39,7 +39,7 @@
 <section id="contact-us" class="bg-slate-100 py-20">
 	<div class="container space-y-4">
 		<h1 class="text-center text-4xl font-black">Contact Us</h1>
-		<p class="mx-auto w-8/12 text-center font-semibold">
+		<p class="mx-auto text-center font-semibold sm:w-8/12">
 			Kami siap membantu Anda dalam memilih produk kabel tray terbaik sesuai kebutuhan proyek Anda.
 			Hubungi kami untuk konsultasi, penawaran harga, atau informasi lebih lanjut.
 		</p>
@@ -51,7 +51,7 @@
 						class="flex items-center gap-2 space-y-2"
 						title="Alamat dan Workshop PT Nandya Persada Sejahtera"
 					>
-						<LucideMapPinCheckInside />
+						<LucideMapPinCheckInside class="shrink-0" />
 						<span>
 							Jl. Pancasila IV, RT02 RW13, Cicadas, Gunung Putri
 							<br />Kecamatan Gunung Putri, Kabupaten Bogor Jawa Barat 16964 - Indonesia

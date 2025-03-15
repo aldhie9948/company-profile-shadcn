@@ -15,7 +15,7 @@
 	<Separator />
 	{#each data.privacyPolicies as item, i (i)}
 		<h2 class="font-bold">{item.title}</h2>
-		<ul class="list-inside list-disc space-y-2 ps-5">
+		<ul class="list-inside list-disc space-y-2 sm:ps-5">
 			{#each item.terms as term, t (t)}
 				<li>{term}</li>
 			{/each}

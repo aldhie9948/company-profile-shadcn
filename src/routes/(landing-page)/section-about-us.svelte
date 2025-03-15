@@ -14,13 +14,13 @@
 
 <section id="about-us" class="container h-fit space-y-4 py-32">
 	<h1 class="mb-8 text-center text-4xl font-black">About Us Company</h1>
-	<div class="grid h-full grid-cols-1 space-x-4 lg:grid-cols-2">
+	<div class="grid h-full grid-cols-1 gap-4 lg:grid-cols-2">
 		<img
 			src={base.concat("/images/about-us.webp")}
 			alt="two manufacture workers"
 			class="w-full object-cover object-[1%] lg:h-full"
 		/>
-		<div class="description space-y-6 p-5">
+		<div class="description space-y-6 sm:p-5">
 			<h2 class="text-2xl font-black">PT. Nandya Persada Sejahtera</h2>
 			<p class="leading-relaxed">
 				Sejak didirikan pada tahun 2010 oleh <span>Alm. Bapak Hadi Subroto</span>
@@ -41,7 +41,7 @@
 				<span>Baca Selengkapnya</span>
 				<LucideArrowRight />
 			</Button>
-			<div class="grid grid-cols-4 gap-4">
+			<div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
 				{#each timelines as item, i (i)}
 					<div class="flex flex-col space-y-2">
 						<span class="text-3xl 2xl:text-4xl">{item.value}</span>
