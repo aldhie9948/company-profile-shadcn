@@ -1,30 +1,17 @@
 <script lang="ts">
 	import { base } from "$app/paths";
 	import Separator from "$lib/components/ui/separator/separator.svelte";
-	import * as Sidebar from "$lib/components/ui/sidebar";
 	import { Toaster } from "$lib/components/ui/sonner";
 	import Icon from "@iconify/svelte";
 	import dayjs from "dayjs";
-	import { onMount } from "svelte";
 	import "../app.css";
-	import SidebarMenu from "./sidebar-menu.svelte";
 
 	const currentYear = dayjs().format("YYYY");
 
 	let { children, data } = $props();
 
-	let isScrolled = $state(false);
 	const phoneNumber = "6282114821226";
 	const whatsappLink = "https://api.whatsapp.com/send/?phone=" + phoneNumber;
-
-	const handleScroll = () => (isScrolled = window.scrollY > 200);
-
-	onMount(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	});
 </script>
 
 <Toaster richColors position="bottom-center" />
@@ -59,33 +46,7 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col">
-	<header
-		class="sticky inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200 sm:fixed"
-		class:header-scroll={isScrolled}
-	>
-		<div class="container flex items-center space-x-2">
-			<img
-				src={base.concat("/images/logo.png")}
-				alt="nandya persada sejahtera logo"
-				class="w-10 sm:w-12"
-			/>
-			<a href={base.concat("/")} class="flex grow flex-col leading-tight">
-				<span class="text-sm font-bold sm:text-base">Nandya Persada Sejahtera</span>
-				<span class="text-xs font-light sm:text-sm">Solusi Kabel Tray yang Modern dan Aman</span>
-			</a>
-			<div class="flex items-center space-x-6">
-				{#each data.navItems as item, i (i)}
-					{@const { href, label } = item}
-					{@const isActive = data.pathname === href}
-					<a {href} class="link" class:link-active={isActive}>{label}</a>
-				{/each}
-				<SidebarMenu navItems={data.navItems} />
-			</div>
-		</div>
-	</header>
-	<div class="grow space-y-4">
-		{@render children()}
-	</div>
+	{@render children()}
 	<footer class="bg-blue-800 py-5 text-white">
 		<div class="container space-y-4">
 			<div class="grid gap-4 py-5 md:grid-cols-4 lg:grid-cols-12">
@@ -160,7 +121,7 @@
 	<a
 		href={whatsappLink}
 		aria-label="contact nandya persada sejahtera via whatsapp"
-		class="fixed bottom-10 right-5 rounded-full bg-gradient-to-b from-green-500 to-green-600 shadow-md"
+		class="fixed bottom-10 right-10 rounded-full bg-gradient-to-b from-green-500 to-green-600 shadow-md sm:bottom-5 sm:right-5"
 		target="_blank"
 	>
 		<Icon icon="ic:baseline-whatsapp" class="m-3 text-white" width="3rem" />
