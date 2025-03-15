@@ -26,9 +26,6 @@ importers:
       nodemailer:
         specifier: ^6.10.0
         version: 6.10.0
-      super-sitemap:
-        specifier: ^1.0.3
-        version: 1.0.3(svelte@5.23.0)
     devDependencies:
       '@iconify/svelte':
         specifier: ^4.2.0
@@ -75,6 +72,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.10
         version: 0.6.11(prettier-plugin-svelte@3.3.3(prettier@3.5.3)(svelte@5.23.0))(prettier@3.5.3)
+      super-sitemap:
+        specifier: ^1.0.3
+        version: 1.0.3(svelte@5.23.0)
       svelte:
         specifier: ^5.0.0
         version: 5.23.0

@@ -56,11 +56,4 @@
 	.header-scroll {
 		@apply from-white to-blue-50 shadow-md;
 	}
-
-	footer ul {
-		@apply list-inside space-y-2;
-		li {
-			@apply flex items-center gap-x-2 text-sm text-slate-300;
-		}
-	}
 </style>

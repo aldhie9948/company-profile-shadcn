@@ -16,35 +16,6 @@
 
 <Toaster richColors position="bottom-center" />
 
-<svelte:head>
-	<title>
-		PT. Nandya Persada Sejahtera - Solusi Kabel Tray yang Modern dan Aman di Bogor dan Bekasi
-	</title>
-	<meta
-		name="description"
-		content="PT. Nandya Persada Sejahtera adalah produsen kabel tray terpercaya di Bogor & Bekasi. Kami menyediakan solusi modern, aman, dan berkualitas untuk kebutuhan industri. Hubungi kami sekarang!"
-	/>
-	<meta
-		name="keywords"
-		content="kabel tray, produsen kabel tray, kabel tray Bogor, kabel tray Bekasi, solusi kabel tray, industri kabel tray"
-	/>
-	<meta name="author" content="PT. Nandya Persada Sejahtera" />
-	<meta name="robots" content="index, follow" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta
-		property="og:title"
-		content="PT. Nandya Persada Sejahtera - Produsen Kabel Tray Berkualitas di Bogor & Bekasi"
-	/>
-	<meta
-		property="og:description"
-		content="Solusi kabel tray modern dan aman dari PT. Nandya Persada Sejahtera untuk kebutuhan industri Anda. Temukan produk berkualitas di Bogor & Bekasi."
-	/>
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://www.nandyapersadasejahtera.com" />
-	<meta property="og:image" content="https://www.nandyapersadasejahtera.com/images/logo.png" />
-	<link rel="canonical" href="https://www.nandyapersadasejahtera.com" />
-</svelte:head>
-
 <main class="flex min-h-dvh flex-col">
 	{@render children()}
 	<footer class="bg-blue-800 py-5 text-white">
@@ -98,6 +69,10 @@
 							<a href="https://www.linkedin.com/company/pt-nandya-persada-sejahtera">LinkedIn</a>
 						</li>
 						<li>
+							<Icon icon="ic:baseline-facebook" width="1.2rem" />
+							<a href="https://web.facebook.com/nandyapersadasejahtera">Facebook</a>
+						</li>
+						<li>
 							<Icon icon="ic:baseline-whatsapp" width="1.2rem" />
 							<a href={whatsappLink}>Whatsapp</a>
 						</li>
@@ -129,18 +104,6 @@
 </main>
 
 <style>
-	.link {
-		@apply hidden text-sm text-muted-foreground duration-200 hover:text-blue-500 lg:flex;
-	}
-
-	.link-active {
-		@apply border-b-2 border-blue-500 font-bold text-blue-500;
-	}
-
-	.header-scroll {
-		@apply from-white to-blue-50 shadow-md;
-	}
-
 	footer ul {
 		@apply list-inside space-y-2;
 		li {
