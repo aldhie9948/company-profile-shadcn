@@ -46,7 +46,7 @@
 			Berikut alasan mengapa PT. Nandya Persada Sejahtera adalah pilihan terbaik untuk Anda
 		</p>
 
-		<div class="grid grid-cols-3 gap-5">
+		<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
 			{#each whyChooseUs as item, i (i)}
 				<div class="flex flex-col items-center justify-center py-10 text-center">
 					<item.icon class="mb-4 h-16 w-16 drop-shadow-md" />

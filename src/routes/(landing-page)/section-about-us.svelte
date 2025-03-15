@@ -12,13 +12,13 @@
 	];
 </script>
 
-<section id="about-us" class="container h-dvh space-y-4 py-32">
-	<h1 class="col-span-2 mb-8 text-center text-4xl font-black">About Us Company</h1>
-	<div class="grid h-full grid-cols-2 space-x-4">
+<section id="about-us" class="container h-fit space-y-4 py-32">
+	<h1 class="mb-8 text-center text-4xl font-black">About Us Company</h1>
+	<div class="grid h-full grid-cols-1 space-x-4 lg:grid-cols-2">
 		<img
 			src={base.concat("/images/about-us.webp")}
 			alt="two manufacture workers"
-			class="h-full w-full object-cover object-[1%]"
+			class="w-full object-cover object-[1%] lg:h-full"
 		/>
 		<div class="description space-y-6 p-5">
 			<h2 class="text-2xl font-black">PT. Nandya Persada Sejahtera</h2>
@@ -41,11 +41,10 @@
 				<span>Baca Selengkapnya</span>
 				<LucideArrowRight />
 			</Button>
-			<div class="py-4"></div>
 			<div class="grid grid-cols-4 gap-4">
 				{#each timelines as item, i (i)}
 					<div class="flex flex-col space-y-2">
-						<span class="text-4xl">{item.value}</span>
+						<span class="text-3xl 2xl:text-4xl">{item.value}</span>
 						<Separator />
 						<span class="!font-semibold">{item.label}</span>
 					</div>

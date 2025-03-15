@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { base } from "$app/paths";
+	import Separator from "$lib/components/ui/separator/separator.svelte";
+	import * as Sidebar from "$lib/components/ui/sidebar";
 	import { Toaster } from "$lib/components/ui/sonner";
 	import Icon from "@iconify/svelte";
 	import dayjs from "dayjs";
 	import { onMount } from "svelte";
 	import "../app.css";
-	import Separator from "$lib/components/ui/separator/separator.svelte";
+	import SidebarMenu from "./sidebar-menu.svelte";
 
 	const currentYear = dayjs().format("YYYY");
 
@@ -56,6 +58,7 @@
 	<meta property="og:image" content="https://www.nandyapersadasejahtera.com/images/logo.png" />
 	<link rel="canonical" href="https://www.nandyapersadasejahtera.com" />
 </svelte:head>
+
 <main class="flex h-dvh flex-col overflow-auto" bind:this={parentElement}>
 	<header
 		class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200"
@@ -73,6 +76,7 @@
 					{@const isActive = data.pathname === href}
 					<a {href} class="link" class:link-active={isActive}>{label}</a>
 				{/each}
+				<SidebarMenu navItems={data.navItems} />
 			</div>
 		</div>
 	</header>
@@ -81,8 +85,8 @@
 	</div>
 	<footer class="bg-blue-800 py-5 text-white">
 		<div class="container space-y-4">
-			<div class="grid grid-cols-12 gap-4 py-5">
-				<div class="col-span-5 space-y-2">
+			<div class="grid gap-4 py-5 md:grid-cols-4 lg:grid-cols-12">
+				<div class="space-y-2 md:col-span-4 lg:col-span-5">
 					<h2 class="text-lg font-bold">About Company</h2>
 					<img
 						src={base.concat("/images/logo.png")}
@@ -96,7 +100,7 @@
 					</p>
 				</div>
 
-				<div class="col-span-3 space-y-2">
+				<div class="space-y-2 md:col-span-2 lg:col-span-3">
 					<h2 class="text-lg font-bold">Contact Us</h2>
 					<ul>
 						<li>
@@ -112,7 +116,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-span-2 space-y-2">
+				<div class="space-y-2 lg:col-span-2">
 					<h2 class="text-lg font-bold">Quick Links</h2>
 					<ul>
 						{#each data.navItems as item, i (i)}
@@ -122,7 +126,7 @@
 						{/each}
 					</ul>
 				</div>
-				<div class="col-span-2 space-y-2">
+				<div class="space-y-2 lg:col-span-2">
 					<h2 class="text-lg font-bold">Follow Us</h2>
 					<ul>
 						<li>
@@ -150,20 +154,19 @@
 			</div>
 		</div>
 	</footer>
+	<a
+		href={whatsappLink}
+		aria-label="contact nandya persada sejahtera via whatsapp"
+		class="fixed bottom-10 right-5 rounded-full bg-gradient-to-b from-green-500 to-green-600 shadow-md"
+		target="_blank"
+	>
+		<Icon icon="ic:baseline-whatsapp" class="m-3 text-white" width="3rem" />
+	</a>
 </main>
-
-<a
-	href={whatsappLink}
-	aria-label="contact nandya persada sejahtera via whatsapp"
-	class="fixed bottom-5 right-5 rounded-full bg-gradient-to-b from-green-500 to-green-600 shadow-md"
-	target="_blank"
->
-	<Icon icon="ic:baseline-whatsapp" class="m-3 text-white" width="3rem" />
-</a>
 
 <style>
 	.link {
-		@apply text-sm text-muted-foreground duration-200 hover:text-blue-500;
+		@apply hidden text-sm text-muted-foreground duration-200 hover:text-blue-500 lg:flex;
 	}
 
 	.link-active {

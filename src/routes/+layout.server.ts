@@ -1,7 +1,8 @@
 import { base } from "$app/paths";
+import type { NavItem } from "$lib/types.js";
 
 export const load = ({ url }) => {
-	const navItems = [
+	const navItems: NavItem[] = [
 		{ href: base.concat("/"), label: "Beranda" },
 		{ href: base.concat("/tentang-kami"), label: "Tentang Kami" },
 		{ href: base.concat("/produk"), label: "Produk" },

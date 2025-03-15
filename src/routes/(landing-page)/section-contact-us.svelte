@@ -43,7 +43,7 @@
 			Kami siap membantu Anda dalam memilih produk kabel tray terbaik sesuai kebutuhan proyek Anda.
 			Hubungi kami untuk konsultasi, penawaran harga, atau informasi lebih lanjut.
 		</p>
-		<div class="grid grid-cols-2 gap-5">
+		<div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
 			<div class="space-y-4">
 				<div class="space-y-2">
 					<h2 class="text-xl font-bold">Informasi Kontak</h2>
@@ -122,14 +122,12 @@
 			<div>
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.628880700803!2d106.93275027499216!3d-6.441678993549581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6995157667c1fd%3A0xd9f9027c40d52d81!2sPT.%20Nandya%20Persada%20Sejahtera!5e0!3m2!1sen!2sid!4v1742016819278!5m2!1sen!2sid"
-					width="600"
-					height="450"
 					style="border:0;"
 					allowfullscreen={false}
 					loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"
 					title="PT. Nandya Persada Sejahtera Location"
-					class="h-full rounded-md shadow-md"
+					class="h-72 w-full rounded-md shadow-md lg:h-full"
 				></iframe>
 			</div>
 		</div>

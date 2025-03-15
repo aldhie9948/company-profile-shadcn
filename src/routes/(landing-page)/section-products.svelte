@@ -78,7 +78,9 @@
 				</div>
 			</div>
 		{/each}
-		<div class="flex h-full flex-col items-center justify-center space-y-4">
+		<div
+			class="flex h-full flex-col items-center justify-center space-y-4 md:col-span-2 lg:col-span-1"
+		>
 			<p class="text-center font-semibold">
 				Temukan lebih banyak produk unggulan dari PT. Nandya Persada Sejahtera.
 			</p>
