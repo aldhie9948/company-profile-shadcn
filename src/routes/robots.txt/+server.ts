@@ -1,6 +1,6 @@
 import { env } from "$env/dynamic/private";
 
-const sitemap = env.HOST_DOMAIN || "" + "/sitemap.xml";
+const sitemap = (env.HOST_DOMAIN || "").concat("/sitemap.xml");
 
 export const GET = () => {
 	const text = `
