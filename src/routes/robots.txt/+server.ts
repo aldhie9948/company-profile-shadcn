@@ -1,17 +1,11 @@
-import { dev } from "$app/environment";
 import { env } from "$env/dynamic/private";
 
 export const GET = () => {
-	const text = !dev
-		? `
+	const text = `
   User-agent: *
   Disallow: /dashboard
   Allow: /
   Sitemap: ${env.HOST_DOMAIN}
-  `
-		: `
-  User-agent: * 
-  Disallow: /
   `;
 
 	const headers = {

@@ -5,10 +5,13 @@
 	import SectionHero from "./section-hero.svelte";
 	import SectionProducts from "./section-products.svelte";
 	import { env } from "$env/dynamic/public";
+	import { dev } from "$app/environment";
 </script>
 
 <svelte:head>
-	<link rel="canonical" href={env.PUBLIC_HOST_DOMAIN} />
+	{#if !dev}
+		<link rel="canonical" href={env.PUBLIC_HOST_DOMAIN} />
+	{/if}
 </svelte:head>
 
 <SectionHero />

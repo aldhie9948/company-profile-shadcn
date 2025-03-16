@@ -18,6 +18,7 @@
 		<img
 			src={base.concat("/images/about-us.webp")}
 			alt="two manufacture workers"
+			title="two manufacture workers"
 			class="w-full object-cover object-[1%] lg:h-full"
 		/>
 		<div class="description space-y-6 sm:p-5">

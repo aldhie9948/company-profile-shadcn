@@ -65,6 +65,7 @@
 					<img
 						src={product.url}
 						alt={product.name}
+						title={product.name}
 						class="mx-auto aspect-square h-full w-8/12 object-contain duration-200 hover:scale-125"
 					/>
 				</div>

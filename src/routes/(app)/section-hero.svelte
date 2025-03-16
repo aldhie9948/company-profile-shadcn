@@ -27,13 +27,15 @@
 		<Carousel.Root opts={{ loop: true }} {plugins}>
 			<Carousel.Content>
 				{#each images as img, i (i)}
+					{@const alt = "carousel-" + i}
 					<Carousel.Item>
 						<div class="relative">
 							<!-- layer -->
 							<div class="absolute inset-0 bg-slate-100/50"></div>
 							<img
 								src={img}
-								alt={"carousel".concat(String(i))}
+								{alt}
+								title={alt}
 								class="h-dvh w-full object-cover object-center lg:h-full"
 							/>
 						</div>
@@ -44,7 +46,7 @@
 	{/key}
 
 	<div class="absolute inset-0 flex h-full flex-col sm:container sm:justify-center">
-		<div class="h-full w-full space-y-4 bg-white/80 p-8 sm:p-10 md:h-fit md:w-10/12 lg:w-8/12">
+		<div class="h-full w-full space-y-4 bg-white/80 p-8 sm:p-10 md:h-fit md:w-10/12 lg:w-7/12">
 			<h1 class="text-2xl font-black leading-tight drop-shadow-md md:text-3xl lg:text-5xl">
 				Solusi <span class="text-blue-700">Kabel Tray</span> & Ladder Modern dan
 				<span class="text-green-500">Aman</span> untuk Infrastruktur Anda
