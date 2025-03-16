@@ -25,24 +25,6 @@
 	});
 </script>
 
-<svelte:head>
-	<meta property="og:url" content="https://www.nandyapersadasejahtera.com" />
-	<meta property="og:image" content="https://www.nandyapersadasejahtera.com/images/logo.png" />
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "PT. Nandya Persada Sejahtera",
-			"url": "https://nandyapersadasejahtera.com",
-			"logo": "https://nandyapersadasejahtera.com/images/logo.png",
-			"sameAs": [
-				"https://www.linkedin.com/company/pt-nandya-persada-sejahtera",
-				"https://web.facebook.com/nandyapersadasejahtera"
-			]
-		}
-	</script>
-</svelte:head>
-
 <main class="flex min-h-dvh flex-col">
 	<header
 		class="sticky inset-x-0 top-0 z-50 bg-gradient-to-b from-blue-50 to-transparent py-5 duration-200 sm:fixed"

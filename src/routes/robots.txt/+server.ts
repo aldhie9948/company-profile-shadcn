@@ -1,11 +1,13 @@
 import { env } from "$env/dynamic/private";
 
+const sitemap = env.HOST_DOMAIN || "" + "/sitemap.xml";
+
 export const GET = () => {
 	const text = `
   User-agent: *
-  Disallow: /dashboard
+  Disallow: 
   Allow: /
-  Sitemap: ${env.HOST_DOMAIN}
+  Sitemap: ${sitemap}
   `;
 
 	const headers = {

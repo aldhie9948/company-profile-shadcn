@@ -1,5 +1,4 @@
 export const ssr = true;
-export const trailingSlash = "always";
 
 import { base } from "$app/paths";
 import type { NavItem } from "$lib/types.js";
