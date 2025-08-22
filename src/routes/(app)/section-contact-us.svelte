@@ -47,35 +47,23 @@
 			<div class="space-y-4">
 				<div class="space-y-2">
 					<h2 class="text-xl font-bold">Informasi Kontak</h2>
-					<div
-						class="flex items-center gap-2 space-y-2"
-						title="Alamat dan Workshop PT Nandya Persada Sejahtera"
-					>
+					<div class="flex gap-2" title="Alamat dan Workshop PT Nandya Persada Sejahtera">
 						<LucideMapPinCheckInside class="shrink-0" />
 						<span>
 							Jl. Pancasila IV, RT02 RW13, Cicadas, Gunung Putri
 							<br />Kecamatan Gunung Putri, Kabupaten Bogor Jawa Barat 16964 - Indonesia
 						</span>
 					</div>
-					<div
-						class="flex items-center gap-2 space-y-2"
-						title="Nomor Kontak PT Nandya Persada Sejahtera"
-					>
+					<div class="flex gap-2" title="Nomor Kontak PT Nandya Persada Sejahtera">
 						<LucidePhoneCall class="shrink-0" />
 						<div class="flex flex-col">
 							<span>(021) 8674344</span>
 							<span>+62 821-1482-1226</span>
 						</div>
 					</div>
-					<div class="flex items-center gap-2 space-y-2" title="Email PT Nandya Persada Sejahtera">
+					<div class="flex items-center gap-2" title="Email PT Nandya Persada Sejahtera">
 						<LucideMailCheck class="shrink-0" />
-						<div class="flex flex-col">
-							<a href="mailto:marketing@nandyapersadasejahtera.com">
-								marketing@nandyapersadasejahtera.com
-							</a>
-							<a href="mailto:info@nandyapersadasejahtera.com"> info@nandyapersadasejahtera.com </a>
-							<a href="mailto:nandyapersadanps@gmail.com">nandyapersadanps@gmail.com</a>
-						</div>
+						<a href="mailto:nandyapersadanps@gmail.com">nandyapersadanps@gmail.com</a>
 					</div>
 				</div>
 				<div class="space-y-2">
